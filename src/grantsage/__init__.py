@@ -4,6 +4,7 @@ __version__ = "0.1.0"
 
 from grantsage.ui_copy import APP_TITLE, APP_SUBTITLE
 
+
 def get_version() -> str:
     """Retorna a versão do GrantSage."""
     return __version__

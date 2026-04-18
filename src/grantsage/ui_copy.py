@@ -2,4 +2,3 @@
 
 APP_TITLE = "GrantSage"
 APP_SUBTITLE = "Copiloto tecnico para edital e proposta (MVP)."
-

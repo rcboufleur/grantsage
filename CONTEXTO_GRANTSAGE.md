@@ -71,7 +71,7 @@ Ordem correta para análise séria (especialmente modos 2 e 3):
 
 ## Passos de implementação já planejados com o usuário (orientação manual)
 
-- **Passo 1:** esqueleto do repo (`editais/`, `propostas/`, `src/grantsage/`, `ui/`, `prompts/`), venv, `requirements.txt` mínimo (`streamlit`, `python-dotenv`), `streamlit run ui/streamlit_app.py`, `.gitignore`, `.env.example`.
+- **Passo 1:** esqueleto do repo (`editais/`, `propostas/`, `src/grantsage/`, `ui/`, `prompts/`), venv, `pyproject.toml`, `streamlit run ui/streamlit_app.py`, `.gitignore`, `.env.example`.
 - **Passo 2 (próximo):** definir e preencher **`catalogo.yaml`** do primeiro edital (molde + ~20 entradas), ainda **sem** embeddings.
 
 ## Instruções para o assistente no Cursor

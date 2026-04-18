@@ -3,3 +3,6 @@ __pycache__/
 *.py[cod]
 .env
 *.egg-info/
+
+# Saídas da ingestão (Markdown, figuras extraídas, etc.) — regeneráveis
+editais/**/artefatos/
