@@ -1,0 +1,50 @@
+# =============================================================================
+# Catálogo normativo do edital (GrantSage) — copie para editais/<edital_id>/
+# =============================================================================
+#
+# Convenções:
+# - `arquivo`: nome exato em fontes/ (com extensão).
+# - `nome_base`: stem estável após padronizar_nome_base(arquivo); alinhar com a
+#   saída do CLI de ingestão.
+# - `retificado`: true quando o documento é peça de retificação/rerratificação
+#   do texto normativo principal (ex.: "Rerratificação - Edital rerratificado",
+#   comunicado que publica retificação). false para edital original, anexos
+#   temáticos, FAQ, guias, etc. (mesmo que o edital já tenha sido retificado
+#   por outro arquivo — nesse caso o *outro* arquivo leva retificado: true).
+# - `papel_vigencia`: estado lógico no corpus que montas para análise:
+#     vigente      — entra como regra atual (pode coexistir com anexos vigentes).
+#     substituido  — foi explicitamente revogado/substituído por outro documento
+#                    catalogado (use substituido_por com o `id` do substituto).
+#     historico    — mantido só para contexto; não usar como regra vigente.
+#     incerto      — falta confirmação humana (datas, cadeia de retificações).
+#
+# `retificado` e `papel_vigencia` são independentes: uma retificação nova pode
+# ter retificado: true e papel_vigencia: vigente; o edital anterior vigente
+# passa a substituido (retificado: false no arquivo antigo).
+# =============================================================================
+
+edital_id: "_template"
+titulo_curto: "Molde — substitua ao copiar"
+url_referencia: null
+atualizado_em: null
+
+documentos:
+  - id: exemplo_edital
+    arquivo: "edital.pdf"
+    nome_base: "edital"
+    tipo: edital
+    data_publicacao: "2025-12-19"
+    retificado: false
+    papel_vigencia: historico
+    substituido_por: exemplo_rerratificacao
+    notas: "Exemplo: edital original após entrada de rerratificação."
+
+  - id: exemplo_rerratificacao
+    arquivo: "edital_rerratificado.pdf"
+    nome_base: "edital_rerratificado"
+    tipo: retificacao
+    data_publicacao: "2026-04-02"
+    retificado: true
+    papel_vigencia: vigente
+    substituido_por: null
+    notas: "Exemplo: texto normativo retificado vigente."
