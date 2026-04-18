@@ -11,7 +11,17 @@ from pathlib import Path
 
 from grantsage.ingest.paths import figuras_dir, garante_layout_edital, md_dir
 
-_EXT_IMAGEM = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".tif", ".tiff"}
+_EXT_IMAGEM = {
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".svg",
+    ".bmp",
+    ".tif",
+    ".tiff",
+}
 
 
 def _contar_imagens_em(pasta: Path) -> int:
@@ -28,9 +38,7 @@ def _avisos_de_subprocess(completed: subprocess.CompletedProcess[str]) -> list[s
     avisos: list[str] = []
     if completed.stderr and completed.stderr.strip():
         avisos.extend(
-            line.strip()
-            for line in completed.stderr.splitlines()
-            if line.strip()
+            line.strip() for line in completed.stderr.splitlines() if line.strip()
         )
     return avisos
 
@@ -83,9 +91,7 @@ def _pandoc_odf_para_md(
         except zipfile.BadZipFile as e:
             raise ValueError(f"Arquivo ZIP inválido ({formato.upper()}): {doc}") from e
 
-        resource_path = sep.join(
-            [str(unpacked.resolve()), str(doc.parent.resolve())]
-        )
+        resource_path = sep.join([str(unpacked.resolve()), str(doc.parent.resolve())])
 
         cmd = [
             "pandoc",

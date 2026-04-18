@@ -5,6 +5,7 @@ from pathlib import Path
 import fitz
 from grantsage.ingest.paths import figuras_dir, md_dir
 
+
 def pdf_para_md(caminho_pdf: Path, edital_id: str, nome_base: str) -> dict:
     """Extrai texto e imagens de um PDF
 
@@ -30,7 +31,7 @@ def pdf_para_md(caminho_pdf: Path, edital_id: str, nome_base: str) -> dict:
     -------
     - ``editais/<edital_id>/artefatos/md/<nome_base>.md``
     - ``editais/<edital_id>/artefatos/md/_figuras/<nome_base>/pNNN_imgMM.<ext>``
-    
+
     No Markdown, cada imagem usa caminho relatio ao ``.md``:
         ``![](_figuras/<nome_base>/nome_arquivo)``.
     """
@@ -39,7 +40,7 @@ def pdf_para_md(caminho_pdf: Path, edital_id: str, nome_base: str) -> dict:
         raise FileNotFoundError(f"Arquivo PDF não encontrado: {pdf}")
     if pdf.suffix.lower() != ".pdf":
         raise ValueError(f"Arquivo PDF inválido: {pdf}")
-    
+
     nb = nome_base.strip()
     if not nb:
         raise ValueError("nome_base não pode ser vazio.")
@@ -47,7 +48,7 @@ def pdf_para_md(caminho_pdf: Path, edital_id: str, nome_base: str) -> dict:
     dest_md = md_dir(edital_id) / f"{nb}.md"
     dest_figuras = figuras_dir(edital_id, nb)
     dest_figuras.mkdir(parents=True, exist_ok=True)
-    
+
     linhas: list[str] = []
     total_imagens = 0
 

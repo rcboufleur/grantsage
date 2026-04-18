@@ -5,4 +5,4 @@ __pycache__/
 *.egg-info/
 
 # Saídas da ingestão (Markdown, figuras extraídas, etc.) — regeneráveis
-editais/**/artefatos/
+editais/**
